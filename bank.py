@@ -6,6 +6,7 @@
 
 def main():
     balance = 0.0
+    amount = 0.0
     while True:
         print("1) Deposit")
         print("2) Withdraw")
@@ -15,15 +16,27 @@ def main():
 
         if choice == "1":
             # TODO: ask "Amount: ", read it as a float, add it to balance, then print
+            amount = float(input("Insert Amount: "))
+            balance += amount
             #   "New balance: <balance>" with the balance shown to 2 decimal places.
+            print(f"New balance: {balance:.2f}")
             pass
         elif choice == "2":
             # TODO: ask "Amount: " and read it as a float. If it is MORE than balance,
             #   print "Insufficient funds". Otherwise subtract it from balance and
             #   print "New balance: <balance>" (2 decimal places).
+            
+            amount = float(input("Insert Amount: "))
+            if(amount > balance):
+                print("Insufficient funds")
+            else:
+                balance = balance - amount
+                print(f"New balance: {balance:.2f}")
             pass
+        
         elif choice == "3":
             # TODO: print "Current balance: <balance>" (2 decimal places).
+            print(f'Current balance: {balance:.2f}')
             pass
         elif choice == "4":
             print("Goodbye")
